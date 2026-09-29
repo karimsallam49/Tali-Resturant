@@ -257,9 +257,10 @@ svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
 
  .main{height:auto;min-height:calc(100vh - 104px);padding-bottom:110px}
  /* side panel -> bottom sheet */
- .side{position:fixed;left:0;right:0;bottom:0;height:auto;max-height:82dvh;border-left:0;border-top:2px solid var(--bg);border-radius:22px 22px 0 0;z-index:40;transform:translateY(105%);transition:transform .25s;box-shadow:0 -18px 50px rgba(0,0,0,.5)}
+ .side{position:fixed;left:0;right:0;bottom:0;height:auto;max-height:82dvh;border-left:0;border-top:2px solid var(--bg);border-radius:22px 22px 0 0;z-index:40;transform:translateY(105%);transition:transform .25s;box-shadow:0 -18px 50px rgba(0,0,0,.5);padding-bottom:calc(22px + env(safe-area-inset-bottom))}
  .side.open{transform:none}
- .cart-fab{display:flex;bottom:20px}
+ .side.open ~ .cart-fab{opacity:0;transform:translateY(14px);pointer-events:none}
+ .cart-fab{display:flex;bottom:calc(16px + env(safe-area-inset-bottom));transition:transform .22s,opacity .22s}
  .cart-close{display:inline}
  .kpis,.two,.three{grid-template-columns:repeat(2,1fr)}.floor{grid-template-columns:repeat(2,1fr)}
  .table .tr{grid-template-columns:1fr 1fr !important}.table .tr>*:nth-child(n+3){display:none}
